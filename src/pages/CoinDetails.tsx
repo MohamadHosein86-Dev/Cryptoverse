@@ -25,11 +25,10 @@ const CoinDetails = () => {
 
   const getData = async () => {
     setLoading(true);
-    let coinData = await getCoinDetailsDatails(coinId, setError);
+    const coinData = await getCoinDetailsDatails(coinId, setError);
     if (coinData && coinId) {
       settingCoinObject(coinData, setCoin);
       const prices = await getPrices(coinId, days, priceType, setError);
-      console.log(prices);
       if (prices) {
         settingChartData(setChartData, prices);
         setLoading(false);

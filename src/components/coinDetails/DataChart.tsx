@@ -1,26 +1,8 @@
 import { Line } from "react-chartjs-2";
 import { ChartDataType } from "../../types/DataTypes";
-import {
-  Chart as ChartJS,
-  LinearScale,
-  CategoryScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-  ChartOptions,
-  Filler,
-} from "chart.js";
+import { Chart as ChartJS, LinearScale, CategoryScale, PointElement, LineElement, Tooltip, Legend, ChartOptions, Filler } from "chart.js";
 
-ChartJS.register(
-  LinearScale,
-  CategoryScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-  Filler
-);
+ChartJS.register(LinearScale, CategoryScale, PointElement, LineElement, Tooltip, Legend, Filler);
 
 type DataChartType = {
   chartData: ChartDataType;
@@ -30,19 +12,19 @@ const DataChart = ({ chartData }: DataChartType) => {
   const options: ChartOptions<"line"> = {
     plugins: {
       legend: {
-        display: false,
-      },
+        display: false
+      }
     },
     responsive: true,
     interaction: {
       mode: "index",
-      intersect: false,
+      intersect: false
     },
     scales: {
       crypto1: {
-        position: "left",
-      },
-    },
+        position: "left"
+      }
+    }
   };
   return <Line data={chartData} options={options} />;
 };
